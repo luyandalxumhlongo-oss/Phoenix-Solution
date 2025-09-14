@@ -7,20 +7,22 @@
 ## ⚒️ Team Name
 ``` c
 // TODO: Fill-in the name of your team.
+Phoenix Solution
 ```
 
 ## 👥 Members
 | Name     | Role                | Institution           | Discord Handle | Email |
 |----------|---------------------|-----------------------| -------------------|-------------|
-| **Name 1**   | Backend Developer   | University of Cape Town | name1 | <email1@gmail.com> |
-| **Name 2**   | Frontend Developer  | University of the Witwatersrand | name2 | <email2@gmail.com> |
-| **Name 3**   | Designer            | University of Johannesburg | name3 | <email3@gmail.com> |
-| **Name 4**   | Q.A Tester          | University of the Western Cape | name4 | <email4@gmail.com> |
+| **Nhlanhla Zama**   | Backend/Frontend Developer   | University of KwaZulu Natal | 1416022587661750313 | <siphozama05@gmail.com> |
+| **Sithembelo Meyiwa**   | Backend/Frontend Developer  | University of KwaZulu Natal | 1416023655510442074  | <sthembelomsweli4@gmail.com> |
+| **Luyanda Mhlongo**   | Frontend Developer/ Designer      | University of KwaZulu Natal | 1407274389770080279 | <luyandalxumhlongo@gmail.com> |
+| **Sbongeleni Magudulela**   | Backend Developer/ Q.A Tester   | University of KwaZulu Natal | 1416098078838096047 | <simnumber10@gmail.com> |
 
 ## 🏫 Institution
 ``` c
 // TODO: Fill-in the name of the institution your
-// team is competing under.
+// team is competing under. 
+University of KwaZulu Natal
 ```
 
 ## 📧 Other Contact Info
