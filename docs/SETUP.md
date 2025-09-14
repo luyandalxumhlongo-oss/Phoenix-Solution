@@ -12,6 +12,7 @@ Follow the steps below to set up and run the project. (Example)
 ``` c
 // TODO: List software, runtimes, frameworks, and or dependencies
 // along with instructions on how to set each up.
+Open any python ide and run the Main.py
 ```
 - Example: Node.js v18+
 - Example: Python 3.10
@@ -32,4 +33,5 @@ cd <repo-name>
 ## ▶️ Running the Project
 ``` bash
 <insert run command here> # Or an explanation on what to do
+In order to run you only need the Python Main file
 ```
