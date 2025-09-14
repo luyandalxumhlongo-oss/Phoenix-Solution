@@ -1,3 +1,4 @@
+
 import random
 
 class DataBase:
@@ -10,6 +11,8 @@ class DataBase:
 
     def get_user(self, iD_number):
         return self.users.get(iD_number)
+
+        
 
 database = DataBase()
 
@@ -28,6 +31,8 @@ def render() :
         if database.users:
             person = database.get_user(iD_no)
 
+        isMerchant = False
+
         if not database.get_user(iD_no): #ID_no not in Database
             res2 = input("\n would you like to join?\n 1.Yes \n 2.No ").strip()
 
@@ -36,12 +41,20 @@ def render() :
                 continue
 
             else:
+                typee =input("Are you the user or merchant?\n1.User \n2.Merchant")
+
                 name = input("your name: ").strip()
                 surname = input("your surname: ").strip()
-                cell_num = input("enter your Cell phone number: ").strip()
                 user_name = name + iD_no[6:]
-                person = user(user_name , name, surname, iD_no, cell_num )
-                database.add_user(person)
+                if typee=='1' :
+                    cell_num = input("enter your Cell phone number: ").strip()
+                    person = user(user_name , name, surname, iD_no, cell_num )
+                    database.add_user(person)
+                else :
+                    isMerchant = True
+                    person=merchant(user_name,name,surname,iD_no)
+
+
                 print("You have successfuly made your Thuma mina Account")
                 continue
 
@@ -50,23 +63,29 @@ def render() :
                 "\n1.Check balance  2.Load credits  3.Send credits "
                 "4.View profile   5.Help   6.Log out\nChoose: "
             ).strip()
-
+            
             if choice == "1":
                 person.check_Bal()
-
+            
             elif choice == "2":
-                vou = input("Enter voucher number: ").strip()
-                if vou in person.vouchers:
-                    person.add_credits(person.vouchers[vou])
-                    person.vouchers.pop(vou)
-                    print("Voucher loaded.")
-                else:
-                    print("Invalid voucher.")
+                if isMerchant :
+                    print("not available")
+                else :
+                    vou = input("Enter voucher number: ").strip()
+                    if vou in person.vouchers:
+                        person.add_credits(person.vouchers[vou])
+                        person.vouchers.pop(vou)
+                        person.num_vouchers+=1
+                        person.reward(person.num_vouchers)
+                        print("Voucher loaded.")
+                    else:
+                        print("Invalid voucher.")
 
             elif choice == "3":
                 u_name = input("Enter recipient username: ").strip()
                 amt = int(input("Enter amount: "))
-                person.transfer(u_name, amt)
+                if isMerchant:
+                    person.transfer(u_name, amt)
 
             elif choice == "4":
                 print(f"User Name : {person.user_name}"
@@ -110,7 +129,7 @@ def make_voucher(person, amount):
     return vo_num            
 
 class merchant:
-    def __init__(self, user_name="", name="", surname="", iD_number="", cell_number=""):
+    def __init__(self, user_name="", name="", surname="", iD_number=""):
         self.user_name = user_name
         self.name= name
         self.surname= surname
@@ -149,6 +168,7 @@ class user:
         self.iD_number= iD_number
         self.cell_number = cell_number
         self.num_credits = 20
+        self.num_vouchers =0
         self.vouchers = {}
         self.transactions = []
 
@@ -177,6 +197,11 @@ class user:
     def check_Bal(self):
         print("Balance: ",self.num_credits)
 
+    def reward(self,num_voucher):
+        if self.num_vouchers>=50 :
+            self.num_credits+=200
+
+    
+
 
 render()
-
